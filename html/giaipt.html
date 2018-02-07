@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>giai phuong trinh bac 2</title>
+<style type="text/css">
+	input
+	{
+		-moz-border-radius-topleft:5px;
+		-moz-border-radius-bottomleft:5px;
+		-webkit-border-bottom-left-radius:5px;
+		-webkit-border-top-left-radius:5px;
+		-moz-border-radius-topright:5px;
+		-webkit-border-top-right-radius:5px;
+		-moz-border-radius-bottomright:5px;
+		-webkit-border-bottom-right-radius:5px;
+	}
+	div.div1
+	{
+		border-width: 2px;
+   		border-style: solid;
+		height: 210px;
+		width: 520px;
+		margin-left:200px;
+		margin-top:200px;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+
+	}
+	.bg {
+    
+    background-image: url("img/giaipt.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+	
+</style>
+<script>
+function giai(form){
+var x1,x2;
+var x,y,z,delta;
+x= parseFloat(form.a.value);
+y= parseFloat(form.b.value);
+z= parseFloat(form.c.value);
+delta=(y*y-4*x*z)
+if(delta ==0){
+	alert("Phương trình có nghiệm kép");
+	x1=-y/(2*x) ;
+	x2=-y/(2*x);
+	form.x.value=eval(x1);
+	form.y.value=eval(x2);
+}
+else if(delta<0){
+	alert("Phương trình vô nghiệm");
+} 
+else{
+	alert("Phương trình có hai nghiệm");
+	x1=(-y-Math.sqrt(delta))/(2*x);
+	x2=(-y+Math.sqrt(delta))/(2*x);
+	form.x.value=eval(x1);
+	form.y.value=eval(x2);
+}
+}
+</script>
+</head>
+<body class="bg">
+<form method="post">
+<div class="div1">
+<br><b>&nbsp;Nhập giá trị A:</b>
+<input type="text" name="a" value="" maxlength="53" size="52">
+<br><br><b>&nbsp;Nhập giá trị B:</b>
+<input type="text" name="b" value="" maxlength="53" size="52">
+<br><br><b>&nbsp;Nhập giá trị C:</b>
+<input type="text" name="c" value="" maxlength="53" size="52">
+<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Đáp số:</b>&nbsp;
+<input type="text" name="x" value="" maxlength="53" size="23">
+<input type="text" name="y" value="" maxlength="53" size="24">
+<br><br>
+<button type="button" value="TÍNH" onClick="giai(this.form)" style="float: right;height: 25px;width: 100px; margin-right: 10px"><b>TÍNH</b></button>
+</div>
+</form>
+</body>
+</html>
